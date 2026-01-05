@@ -1,0 +1,110 @@
+<header>
+    <style>
+        .main-header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .nav-start {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .logo a {
+            color: #ff385c;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #222;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 12px;
+            border-radius: 20px;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover {
+            background-color: #f7f7f7;
+            color: #000;
+        }
+
+        .login-btn {
+            text-decoration: none;
+            color: #fff;
+            background-color: #ff385c;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 24px;
+            transition: opacity 0.2s;
+        }
+
+        .login-btn:hover {
+            opacity: 0.9;
+        }
+
+        #signup {
+            background-color: rgb(79, 79, 206);
+        }
+    </style>
+    <div class="main-header">
+        <nav class="nav-container">
+            <div class="nav-start">
+                <div class="logo">
+                    <a href="/">
+                        AirbnbClone
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <% if(isLoggedIn) { %>
+                        <li><a href="/host/add-home">Add Home</a></li>
+                        <li><a href="/host/hosthomes">Your Homes</a></li>
+                        <% } %>
+                </ul>
+            </div>
+            <div class="nav-end">
+                <% if(isLoggedIn) {%>
+
+                    <form action="/logout" method="post">
+                        <button>Logout</button>
+                    </form>
+
+                    <% } else { %>
+                        <a href="/login" class="login-btn">Login</a>
+                        <a href="/signup" class="login-btn" id="signup">Sign Up</a>
+                        <% } %>
+
+
+            </div>
+        </nav>
+    </div>
+</header>

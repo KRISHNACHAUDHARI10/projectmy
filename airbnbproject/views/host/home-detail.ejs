@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= pageTitle %>
+    </title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .home-title {
+            font-size: 2rem;
+            color: #222;
+            margin-bottom: 5px;
+        }
+
+        .home-location {
+            color: #717171;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-decoration: underline;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .info-section h3 {
+            color: #222;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .price-card {
+            border: 1px solid #ddd;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+            height: fit-content;
+        }
+
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .rating-badge {
+            display: inline-block;
+            background-color: #f7f7f7;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .star {
+            color: #ff385c;
+        }
+
+        .btn-back {
+            display: inline-block;
+            margin-top: 20px;
+            color: #222;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('../partils/nav') %>
+
+        <div class="container">
+            <h1 class="home-title">
+                <%= home.homename %>
+            </h1>
+            <p class="home-location">
+                <%= home.address %>
+            </p>
+
+            <img src="<%= home.photourl %>" alt="<%= home.homename %>" class="hero-image">
+
+            <div class="details-grid">
+                <div class="info-section">
+                    <div class="rating-badge">
+                        <span class="star">★</span>
+                        <%= home.rating %> Rating
+                    </div>
+
+                    <h3>Description</h3>
+                    <p>
+                        Experience the comfort of <%= home.homename %>. Located in the heart of <%= home.address %>.
+                                This home offers a unique stay with top-notch amenities.
+                                (Description field can be added to the model for more details).
+                    </p>
+                </div>
+
+                <div class="price-card">
+                    <div class="price-tag">$<%= home.price %> <span style="font-size: 1rem; font-weight: normal;">/
+                                night</span></div>
+                    <br>
+                    <button
+                        style="width: 100%; padding: 12px; background: #ff385c; color: white; border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer;">Reserve</button>
+                </div>
+            </div>
+
+            <a href="/host/hosthomes" class="btn-back">← Back to all homes</a>
+        </div>
+
+</body>
+
+</html>
